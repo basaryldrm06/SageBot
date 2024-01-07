@@ -48,13 +48,15 @@ def close_position(isTP):
     on_short = False
 
     if isTP:
+        tp_count = tp_count + 1
         print_with_color("green", "Position closed with TP")
-        print_with_color("yellow", "TP: " + str(tp_count), + " SL: " + 
-              str(sl_count) + " win-rate" + calculateWR(tp_count, sl_count))
+        print_with_color("yellow", "TP: " + str(tp_count) + " SL: " + 
+              str(sl_count) + " Win-Rate" + calculateWR(tp_count, sl_count))
     else:
+        sl_count = sl_count + 1
         print_with_color("red", "Position closed with SL")
-        print_with_color("yellow", "TP: " + str(tp_count), + " SL: " + 
-            str(sl_count) + " win-rate" + calculateWR(tp_count, sl_count))
+        print_with_color("yellow", "TP: " + str(tp_count) + " SL: " + 
+            str(sl_count) + " Win-Rate: " + calculateWR(tp_count, sl_count))
         
 print_with_color("cyan", "SageBot is running...")
 
