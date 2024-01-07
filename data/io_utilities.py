@@ -24,7 +24,7 @@ def print_with_color(color, text):
     elif color.lower() == 'red':
         colored_text = colored(text, 'red')
 
-    print("[" + get_current_date_string + "] " + colored_text)
+    print("[" + get_current_date_string() + "] " + colored_text)
 
 def calculateWR(tp_count, sl_count):
     total_trades = tp_count + sl_count

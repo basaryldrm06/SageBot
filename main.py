@@ -64,6 +64,7 @@ while True:
         data_objects[1] = fetch_all_indicators(client)
 
         if not (on_long or on_short):
+            print()
             data_objects[0] = copy.deepcopy(data_objects[1])
             accuracy, prediction = predict(csv_path_position, data_objects[0])
             if prediction == "LONG":
@@ -72,7 +73,8 @@ while True:
             elif prediction == "SHORT":
                 tp_price, sl_price = enter_short(client)
                 on_short = True
-            print_with_color("yellow", "\nEntered " + prediction + " Current: " + 
+            
+            print_with_color("yellow", "Entered " + prediction + " Current: " + 
                              str(round(data_objects[0].price, 2)) + " TP_PRICE: " + str(round(tp_price, 2)) + 
                              " SL_PRICE: " + str(round(sl_price, 2)) + " ACCURACY: " + 
                              (str(round(accuracy, 2)) if accuracy is not None else "None"))
