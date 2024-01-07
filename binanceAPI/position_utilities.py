@@ -3,7 +3,7 @@ import sys
 import os 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from indicators.price import fetch_price
-from config2 import coin_precision, tp_percentage, sl_percentage, test_mode
+from config import coin_precision, tp_percentage, sl_percentage, test_mode
 
 def enter_long(client):
     account_balance = get_account_balance(client)
