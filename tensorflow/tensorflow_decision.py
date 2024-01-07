@@ -5,7 +5,7 @@ from sklearn.model_selection import train_test_split
 import numpy as np
 import pandas as pd
 
-def train_and_predict(file_path, dataObj):
+def predict(file_path, dataObj):
     try:
         df = pd.read_csv(file_path)
 
