@@ -1,3 +1,4 @@
+from tensorflow_utilities.tensorflow_decision import predict
 from binance.client import Client
 from binanceAPI.position_utilities import enter_long, enter_short
 from config import api_key, secret_key
@@ -5,7 +6,6 @@ from indicators.fetch_all_indicators import fetch_all_indicators
 from data.io_utilities import print_with_color, calculateWR
 from time import sleep
 from data.data_functions import save_position, save_result
-from tensorflow.tensorflow_decision import predict
 import copy
 
 # Binance API initialization
