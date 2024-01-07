@@ -67,10 +67,10 @@ while True:
             data_objects[0] = copy.deepcopy(data_objects[1])
             prediction = predict(csv_path_position, data_objects[0])
             if prediction == "LONG":
-                tp_price, sl_price = enter_long(client) # TODO: change arguement of this function
+                tp_price, sl_price = enter_long(client)
                 on_long = True
             elif prediction == "SHORT":
-                tp_price, sl_price = enter_short(client) # TODO: 2
+                tp_price, sl_price = enter_short(client)
                 on_short = True
             print_with_color("yellow", "\nEntered " + prediction + " Current: " + 
                              data_objects[0].price + " TP_PRICE: " + tp_price + 

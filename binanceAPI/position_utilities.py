@@ -5,7 +5,7 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from indicators.price import fetch_price
 from config2 import coin_precision, tp_percentage, sl_percentage, test_mode
 
-def enter_long(client, enter_position):
+def enter_long(client):
     account_balance = get_account_balance(client)
     coin_amount = convert_usdt_to_coin(client, "ETHUSDT", account_balance * (95 / 100)) 
     coin_price = fetch_price(client, "ETHUSDT")
@@ -13,17 +13,14 @@ def enter_long(client, enter_position):
     tp_price = float(round(coin_price * (1 + tp_percentage), coin_precision))
     sl_price = float(round(coin_price * (1 - sl_percentage), coin_precision))
 
-    if (enter_position) and (not test_mode):
-        print("Line 20")
+    if not test_mode:
         enter_position(client, "LONG", coin_amount, "ETHUSDT")
-        print("Line 22")
         place_tp_order(client, "LONG", coin_amount, "ETHUSDT", tp_price)
-        print("Line 24")
         place_sl_order(client, "LONG", coin_amount, "ETHUSDT", sl_price)
-        print("Line 26")
+
     return tp_price, sl_price
 
-def enter_short(client, enter_position):
+def enter_short(client):
     account_balance = get_account_balance(client)
     coin_amount = convert_usdt_to_coin(client, "ETHUSDT", account_balance * (95 / 100)) 
     coin_price = fetch_price(client, "ETHUSDT")
@@ -31,7 +28,7 @@ def enter_short(client, enter_position):
     tp_price = float(round(coin_price * (1 - tp_percentage), coin_precision))
     sl_price = float(round(coin_price * (1 + sl_percentage), coin_precision))
 
-    if (enter_position) and (not test_mode):
+    if not test_mode:
         enter_position(client, "SHORT", coin_amount, "ETHUSDT")
         place_tp_order(client, "SHORT", coin_amount, "ETHUSDT", tp_price)
         place_sl_order(client, "SHORT", coin_amount, "ETHUSDT", sl_price)
