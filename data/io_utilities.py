@@ -2,12 +2,11 @@ import datetime
 from termcolor import colored
 
 def print_position_message(indicatorDataObj, position):
-    print_with_color("yellow", "PRICE: " + str(indicatorDataObj.price) + 
-          " MACD_12: " + str(indicatorDataObj.macd_12) + 
-          " MACD_26: " + str(indicatorDataObj.macd_26) + 
-          " EMA_100: " + str(indicatorDataObj.ema_100) + 
-          " RSI_6: " + str(indicatorDataObj.rsi_6) + 
-          " Position " + str(position))
+    print_with_color("yellow", "PRICE: " + str(round(indicatorDataObj.price, 2)) + 
+          " MACD_12: " + str(round(indicatorDataObj.macd_12, 2)) + 
+          " MACD_26: " + str(round(indicatorDataObj.macd_26, 2)) + 
+          " EMA_100: " + str(round(indicatorDataObj.ema_100, 2)) + 
+          " RSI_6: " + str(round(indicatorDataObj.rsi_6, 2)))
     
 def get_current_date_string(format="%Y-%m-%d %H:%M:%S"):
     current_date = datetime.datetime.now()
@@ -25,7 +24,7 @@ def print_with_color(color, text):
     elif color.lower() == 'red':
         colored_text = colored(text, 'red')
 
-    print(colored_text)
+    print("[" + get_current_date_string + "] " + colored_text)
 
 def calculateWR(tp_count, sl_count):
     total_trades = tp_count + sl_count

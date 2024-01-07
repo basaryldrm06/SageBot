@@ -3,7 +3,7 @@ from binance.client import Client
 from binanceAPI.position_utilities import enter_long, enter_short
 from config import api_key, secret_key
 from indicators.fetch_all_indicators import fetch_all_indicators
-from data.io_utilities import print_with_color, calculateWR
+from data.io_utilities import print_with_color, calculateWR, print_position_message
 from time import sleep
 from data.data_functions import save_position, save_result
 import copy
@@ -65,7 +65,7 @@ while True:
 
         if not (on_long or on_short):
             data_objects[0] = copy.deepcopy(data_objects[1])
-            prediction = predict(csv_path_position, data_objects[0])
+            accuracy, prediction = predict(csv_path_position, data_objects[0])
             if prediction == "LONG":
                 tp_price, sl_price = enter_long(client)
                 on_long = True
@@ -73,8 +73,10 @@ while True:
                 tp_price, sl_price = enter_short(client)
                 on_short = True
             print_with_color("yellow", "\nEntered " + prediction + " Current: " + 
-                             data_objects[0].price + " TP_PRICE: " + tp_price + 
-                             " SL_PRICE: " + sl_price)
+                             str(round(data_objects[0].price, 2)) + " TP_PRICE: " + str(round(tp_price, 2)) + 
+                             " SL_PRICE: " + str(round(sl_price, 2)) + " ACCURACY: " + 
+                             (str(round(accuracy, 2)) if accuracy is not None else "None"))
+            print_position_message(data_objects[0], prediction)
         else:
             if (on_long and  data_objects[1].price > tp_price) or \
                   (on_short and data_objects[1].price < tp_price):
