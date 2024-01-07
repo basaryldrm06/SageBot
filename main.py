@@ -2,9 +2,7 @@ from binance.client import Client
 from binanceAPI.position_utilities import enter_long, enter_short
 from config import api_key, secret_key
 from indicators.fetch_all_indicators import fetch_all_indicators
-from data.io_utilities import get_current_date_string, print_with_color, calculateWR
-from data.IndicatorData import IndicatorData
-from data import io_utilities
+from data.io_utilities import print_with_color, calculateWR
 from time import sleep
 from data.data_functions import save_position, save_result
 from tensorflow.tensorflow_decision import predict
@@ -84,6 +82,7 @@ while True:
             elif (on_long and data_objects[1].price < sl_price) or \
                   (on_short and data_objects[1].price > sl_price):
                 close_position(False)
+
     except Exception as e:
         error_message = str(e)
-        print_with_color("yellow", "ERROR: " + error_message)
+        print_with_color("yellow", error_message)
