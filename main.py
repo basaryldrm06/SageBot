@@ -4,7 +4,6 @@ from config import api_key, secret_key
 from indicators.fetch_all_indicators import fetch_all_indicators
 from data.io_utilities import get_current_date_string, print_with_color, calculateWR
 from data.IndicatorData import IndicatorData
-from indicators.bar_prices import get_historical_data
 from data import io_utilities
 from time import sleep
 from data.data_functions import save_position, save_result
@@ -32,6 +31,20 @@ def close_position(isTP):
     global on_short
     global tp_count
     global sl_count
+    global data_objects
+    global prediction
+    global csv_path_position
+    global csv_path_result
+
+    state = "" 
+    
+    if (on_long and isTP) or (on_short and (not isTP)): 
+        state = "LONG"
+    elif (on_long and (not isTP)) or (on_short and isTP):
+        state = "SHORT"
+
+    save_position(csv_path_position, state, data_objects[0])
+    save_result(csv_path_result, data_objects[0].date, state, prediction)
 
     on_long = False
     on_short = False
@@ -49,7 +62,9 @@ print_with_color("cyan", "SageBot is running...")
 
 while True:
     try:
+        sleep(10)
         data_objects[1] = fetch_all_indicators(client)
+
         if not (on_long or on_short):
             data_objects[0] = copy.deepcopy(data_objects[1])
             prediction = predict(csv_path_position, data_objects[0])
@@ -69,6 +84,6 @@ while True:
             elif (on_long and data_objects[1].price < sl_price) or \
                   (on_short and data_objects[1].price > sl_price):
                 close_position(False)
-            print("Position closed")
-    except:
-        pass
+    except Exception as e:
+        error_message = str(e)
+        print_with_color("yellow", "ERROR: " + error_message)
