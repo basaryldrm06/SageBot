@@ -31,9 +31,8 @@ def predict(file_path, dataObj):
         model.add(Dense(1, activation='sigmoid'))
         model.compile(optimizer='adam', loss='binary_crossentropy', metrics=['accuracy'])
 
-        model.fit(X_train, y_train, epochs=10, batch_size=32, validation_split=0.2)
-
-        _, test_acc = model.evaluate(X_test, y_test)
+        model.fit(X_train, y_train, epochs=10, batch_size=32, validation_split=0.2, verbose=0)
+        _, test_acc = model.evaluate(X_test, y_test, verbose=0)
 
         def predict(indicatorDataObj):
             features = [float(indicatorDataObj.price),
@@ -45,8 +44,7 @@ def predict(file_path, dataObj):
                     features.append(float(element))
 
             new_data = np.array([features])
-            prediction_prob = model.predict(new_data)
-
+            prediction_prob = model.predict(new_data, verbose=0)
             prediction = "LONG" if prediction_prob > 0.5 else "SHORT"
 
             return prediction

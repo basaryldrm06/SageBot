@@ -1,3 +1,5 @@
+import os
+os.environ['TF_ENABLE_ONEDNN_OPTS'] = '0'
 from tensorflow_utilities.tensorflow_decision import predict
 from binance.client import Client
 from binanceAPI.position_utilities import enter_long, enter_short
