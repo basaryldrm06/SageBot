@@ -77,7 +77,7 @@ In case you encounter any issues, kindly attempt to resolve them before moving f
 
 If you are facing difficulties downloading the Talib library, consider trying a manual download from this [link](https://www.lfd.uci.edu/~gohlke/pythonlibs/).
 
-# Configuration
+## Configuration
 Rename the file config2.py to config.py.
 
 Open the config.py file to edit the settings, and fill in the empty fields according to your preferences.
