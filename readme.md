@@ -118,6 +118,9 @@ This trading bot is developed solely for experimental purposes, aiming to explor
 
 Any profits or losses incurred using this bot are entirely your responsibility. Please refrain from using the program if you are not familiar with its functionalities. Understand that engaging in financial transactions carries inherent risks, and it's crucial to exercise caution and knowledge when utilizing this bot.
 
+<div align="center">
+    <img src="./readme_src/high-risk.jpg" alt="Code Example" width="250">
+</div>
 
 ## Last Words from Developer
 I hope you find this project useful and enjoyable.
@@ -129,3 +132,11 @@ Artificial intelligence is one of the most significant inventions of our era, wi
 If you have any innovative ideas in mind for trading bots or AI, feel free to reach out to me through the links on my profile. We can collaborate and develop something together.
 
 Thank you for your interest and support! 🚀
+
+<div align="center">
+    <p> 
+        <a href="mailto:basaryldrm06@gmail.com?subject=Hello%20basaryldrm06"> <img src="./readme_src/gmail.png" width="60" alt="gmail"> </a>
+        <a href="https://www.linkedin.com/in/basaryldrm06/"> <img src="./readme_src/linkedin.png" width="60" alt="linkedin"> </a>
+        <a href="https://github.com/basaryldrm06" target="_blank"> <img src="./readme_src/github.png" width="60" alt="github"> </a>
+    </p>
+</div>
