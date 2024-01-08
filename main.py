@@ -53,7 +53,7 @@ def close_position(isTP):
         tp_count = tp_count + 1
         print_with_color("green", "Position closed with TP")
         print_with_color("yellow", "TP: " + str(tp_count) + " SL: " + 
-              str(sl_count) + " Win-Rate" + calculateWR(tp_count, sl_count))
+              str(sl_count) + " Win-Rate: " + calculateWR(tp_count, sl_count))
     else:
         sl_count = sl_count + 1
         print_with_color("red", "Position closed with SL")
