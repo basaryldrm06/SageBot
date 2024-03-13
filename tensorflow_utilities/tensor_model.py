@@ -39,7 +39,7 @@ class TensorModel:
 
         optimizer = Adam(learning_rate=0.01)
         self.model.compile(optimizer=optimizer, loss='sparse_categorical_crossentropy', metrics=['accuracy'])
-        self.model.fit(self.X_train, self.y_train, epochs=32, batch_size=1, validation_split=0.2, verbose=1)
+        self.model.fit(self.X_train, self.y_train, epochs=32, batch_size=1, validation_split=0.2, verbose=0)
     
     def getAccuracy(self):
         _, test_acc = self.model.evaluate(self.X_test, self.y_test, verbose=0)
