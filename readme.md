@@ -125,11 +125,11 @@ Any profits or losses incurred using this bot are entirely your responsibility. 
 ## Last Words from Developer
 I hope you find this project useful and enjoyable.
 
+Artificial intelligence is one of the most significant inventions of our era, with a wide range of applications. While working on this project, my goal was to explore the extent to which the power of artificial intelligence could be applied to financial transactions. For this reason, this project was particularly intriguing and enjoyable for me.
+
 Feel free to follow my account for more projects like this and stay updated on upcoming releases. Don't forget to star and watch this project to receive notifications about future updates and improvements.
 
-Artificial intelligence is one of the most significant inventions of our era, with a wide range of applications. While working on this project, my idea was to explore the extent to which the power of artificial intelligence could be applied to financial transactions. For this reason, this project was particularly intriguing and enjoyable for me.
-
-If you have any innovative ideas in mind for trading bots or AI, feel free to reach out to me through the links on my profile. We can collaborate and develop something together.
+If you have any innovative ideas in mind for trading bots or AI, You can reach out to me through the links on my profile. We can collaborate and develop something together.
 
 Thank you for your interest and support! 🚀
 

@@ -1,6 +1,7 @@
 import os
 os.environ['TF_ENABLE_ONEDNN_OPTS'] = '0'
-from tensorflow_utilities.tensorflow_decision import predict
+import silence_tensorflow.auto
+from tensorflow_utilities.tensor_model import TensorModel
 from binance.client import Client
 from binanceAPI.position_utilities import enter_long, enter_short
 from config import api_key, secret_key
@@ -70,7 +71,7 @@ while True:
         if not (on_long or on_short):
             print()
             data_objects[0] = copy.deepcopy(data_objects[1])
-            accuracy, prediction = predict(csv_path_position, data_objects[0])
+            accuracy, prediction = TensorModel(csv_path_position).process_model(data_objects[0])
             if prediction == "LONG":
                 tp_price, sl_price = enter_long(client)
                 on_long = True
